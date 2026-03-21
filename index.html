@@ -3,29 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Outside | Home</title>
+    <title>About Us | Sleep Outside</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
+    <header class="divider">
         <div class="logo">
             <a href="index.html">
-                <img src="images/noun-tent-2201886.png" alt="Logo" width="80">
+                <img src="images/logo.png" alt="Sleep Outside Logo" width="80">
             </a>
         </div>
-        <nav>
-            <ul class="main-nav">
+
+        <button id="hamburger-menu" aria-label="Open Menu">&#9776;</button>
+
+        <nav class="main-nav" id="nav-menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
+        <h1>Sleep Outside</h1>
     </header>
-    <main>
-        <h1>Welcome to Sleep Outside</h1>
-        <p>Visit our <a href="about.html">About Page</a> for our mission.</p>
+
+    <main class="divider">
+        <section class="about-hero">
+            <h1>Our Mission</h1>
+            <p>Bringing comfort to the wild through premium outdoor gear.</p>
+        </section>
+
+        <section class="mission-cards">
+            <div class="card">
+                <img src="images/mountain.png" alt="Story Icon" width="60">
+                <h2>Our Story</h2>
+                <p>We believe everyone deserves to experience the great outdoors.</p>
+            </div>
+            <div class="card">
+                <img src="images/tents.png" alt="Vision Icon" width="60">
+                <h2>Our Vision</h2>
+                <p>To be the premier online destination for adventurers.</p>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Sleep Outside</p>
+
+    <footer class="divider">
+        <p>&copy; 2026 Sleep Outside - Kazadi A. Muamba</p>
     </footer>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>
