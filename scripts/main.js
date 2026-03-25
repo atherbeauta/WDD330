@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("hamburger-menu");
-    const menu = document.getElementById("nav-menu");
+    const hamburger = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
 
-    if (btn && menu) {
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("open");
-            // Change l'icône entre ☰ et ✕
-            btn.innerHTML = menu.classList.contains("open") ? "&#10006;" : "&#9776;";
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("open");
+            // change hamburger icon to close icon when menu is open
+            hamburger.innerHTML = navMenu.classList.contains("open") ? "&#10006;" : "&#9776;";
         });
     }
 });

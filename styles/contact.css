@@ -1,0 +1,59 @@
+:root {
+    --primary: #2196F3;
+    --dark: #333;
+    --bg-light: #f1f3f4;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; color: var(--dark); line-height: 1.6; }
+
+.divider { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+
+/* Header Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--bg-light);
+    position: relative;
+    padding: 10px 20px;
+}
+
+.site-title { font-size: 1.5rem; margin-left: auto; }
+
+#hamburger-menu {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+/* Navigation Menu */
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: 200px;
+}
+
+#nav-menu.open { display: block; }
+.main-nav { list-style: none; padding: 10px; }
+.main-nav li { padding: 10px; text-align: center; }
+.main-nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
+
+/* Cards & Content */
+.about-hero { background: var(--bg-light); padding: 3rem; text-align: center; border-radius: 12px; margin-bottom: 2rem; }
+.mission-cards { display: flex; flex-wrap: wrap; gap: 2rem; }
+.card { flex: 1 1 300px; padding: 2rem; border: 1px solid #ddd; border-radius: 8px; text-align: center; background: white; }
+.card img { margin: 0 auto 1rem; display: block; }
+
+footer { text-align: center; padding: 2rem; background: var(--bg-light); margin-top: 2rem; }
