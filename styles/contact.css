@@ -1,59 +1,97 @@
+/* WDD 330 - Contact Page Specific Styles */
+
 :root {
-    --primary: #2196F3;
-    --dark: #333;
-    --bg-light: #f1f3f4;
+    --primary-color: #2196F3;
+    --secondary-color: #333;
+    --background-light: #f9f9f9;
     --white: #ffffff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', sans-serif; color: var(--dark); line-height: 1.6; }
-
-.divider { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
-
-/* Header Layout */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--bg-light);
-    position: relative;
-    padding: 10px 20px;
+/* Container de la carte de contact */
+.contact-card {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid #eee;
 }
 
-.site-title { font-size: 1.5rem; margin-left: auto; }
-
-#hamburger-menu {
+.contact-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
     font-size: 2rem;
-    background: none;
+}
+
+.contact-card p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Layout du Formulaire avec Flexbox */
+.form-layout {
+    display: flex;
+    flex-direction: column; /* Aligne les champs verticalement */
+    gap: 1.2rem;            /* Espace uniforme entre les éléments */
+    text-align: left;       /* Aligne les labels à gauche */
+}
+
+.form-layout label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: -0.8rem; /* Rapproche le label de son input */
+}
+
+/* Style des Inputs et Textarea */
+.form-layout input, 
+.form-layout textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-layout input:focus, 
+.form-layout textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
+
+/* Style du Bouton de soumission */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
     border: none;
-    color: var(--primary);
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
-    margin: 0 20px;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Navigation Menu */
-#nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    width: 200px;
+.btn-primary:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
 }
 
-#nav-menu.open { display: block; }
-.main-nav { list-style: none; padding: 10px; }
-.main-nav li { padding: 10px; text-align: center; }
-.main-nav a { text-decoration: none; color: var(--dark); font-weight: bold; }
+.btn-primary:active {
+    transform: translateY(0);
+}
 
-/* Cards & Content */
-.about-hero { background: var(--bg-light); padding: 3rem; text-align: center; border-radius: 12px; margin-bottom: 2rem; }
-.mission-cards { display: flex; flex-wrap: wrap; gap: 2rem; }
-.card { flex: 1 1 300px; padding: 2rem; border: 1px solid #ddd; border-radius: 8px; text-align: center; background: white; }
-.card img { margin: 0 auto 1rem; display: block; }
-
-footer { text-align: center; padding: 2rem; background: var(--bg-light); margin-top: 2rem; }
+/* Responsive : Adaptation pour mobile */
+@media (max-width: 600px) {
+    .contact-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
