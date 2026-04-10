@@ -1,7 +1,38 @@
-<section class="newsletter">
-    <h3>Join our Newsletter</h3>
-    <form id="newsletter-form">
-        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-    </form>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W06 - Newsletter Subscription</title>
+    <style>
+        /* Basic styling for the feedback message */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .form-container { max-width: 400px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
+        input[type="email"] { width: 80%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 8px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
+        #feedback-message { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Join our Newsletter</h2>
+        <p>Stay updated with our latest news and project progress.</p>
+        
+        <form id="newsletter-form">
+            <input 
+                type="email" 
+                id="newsletter-email" 
+                placeholder="Enter your email" 
+                data-category="user-subscription"
+                required
+            >
+            <button type="submit" id="subscribe-btn">Subscribe</button>
+        </form>
+
+        <div id="feedback-message"></div>
+    </div>
+
+    <script src="script/main.js"></script>
+</body>
+</html>
