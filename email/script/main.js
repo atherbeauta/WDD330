@@ -38,6 +38,16 @@
 
                         feedback.textContent = "Success! Verified via API.";
                         feedback.style.color = "green";
+
+                        // Dans main.js, à l'intérieur du "if (response.ok)"
+localStorage.setItem('user_email', email);
+localStorage.setItem('signup_status', 'Mastery_Confirmed');
+localStorage.setItem('last_visit', new Date().toLocaleString());
+
+// REDIRECTION (Ajoute cette ligne) :
+setTimeout(() => {
+    window.location.href = 'thanks.html';
+}, 2000); // Attend 2 secondes pour que l'utilisateur voit le message de succès
                     }
                 } catch (err) {
                     feedback.textContent = "Error connecting to validation server.";
