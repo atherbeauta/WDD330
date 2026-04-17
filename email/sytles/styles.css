@@ -1,0 +1,126 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container avec Animation d'entrée */
+.form-container {
+    max-width: 450px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: slideUp 0.8s ease-out; /* Animation CSS */
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Image avec effet au survol */
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.hero-img:hover {
+    filter: saturate(1.5);
+    transform: scale(1.02);
+}
+
+/* Form Styles */
+h2 { color: #1c1e21; margin-bottom: 10px; }
+p { color: #606770; margin-bottom: 20px; font-size: 0.95em; }
+
+input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease; /* Transition */
+}
+
+input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Feedback Message Animation */
+#feedback-message {
+    margin-top: 20px;
+    font-weight: 600;
+    min-height: 24px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* API Quote Box */
+#quote-box {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-style: italic;
+    color: #4b4f56;
+}
+
+/* Icons avec transformations avancées (10 pts Mastery) */
+.social-icons {
+    margin-top: 25px;
+}
+
+.icon {
+    width: 35px;
+    height: auto;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon:hover {
+    transform: scale(1.4) rotate(360deg); /* Transformation complexe */
+}

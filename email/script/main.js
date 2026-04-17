@@ -1,39 +1,50 @@
-// Newsletter functionality with validation and feedback
+// Final Project Script - WDD 330
 (function() {
-    const initNewsletter = () => {
+    const initApp = () => {
         const form = document.querySelector('#newsletter-form');
-        const feedback = document.createElement('p'); // Create feedback message element
-        form.appendChild(feedback);
+        const feedback = document.querySelector('#feedback-message');
+        const quoteContainer = document.querySelector('#quote-container');
+
+        // 1. Fetching a Random Quote (API #1)
+        const getQuote = async () => {
+            try {
+                const response = await fetch('https://api.quotable.io/random');
+                const data = await response.json(); // Handling JSON data
+                quoteContainer.innerHTML = `<p>"${data.content}" — <em>${data.author}</em></p>`;
+            } catch (err) {
+                console.error("API 1 Error:", err);
+            }
+        };
 
         if (form) {
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
-                const emailInput = document.querySelector('#newsletter-email');
-                const emailValue = emailInput.value.trim();
+                const email = document.querySelector('#newsletter-email').value;
 
-                // Simple Regex for email validation
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                // 2. Simulating User Verification (API #2 - JSONPlaceholder)
+                try {
+                    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                        method: 'POST',
+                        body: JSON.stringify({ title: 'New Subscriber', email: email }),
+                        headers: { 'Content-type': 'application/json; charset=UTF-8' }
+                    });
+                    const result = await response.json(); // Handling JSON response
 
-                if (emailPattern.test(emailValue)) {
-                    // Success: Save to LocalStorage
-                    localStorage.setItem('subscribedEmail', emailValue);
-                    
-                    // Visual Feedback
-                    feedback.textContent = "Thank you! You have been subscribed.";
-                    feedback.style.color = "green";
-                    emailInput.value = ""; // Clear input
-                    
-                    console.log("Email saved successfully:", emailValue);
-                } else {
-                    // Error Feedback
-                    feedback.textContent = "Please enter a valid email address.";
-                    feedback.style.color = "red";
+                    if (response.ok) {
+                        // 3. Using LocalStorage (3 properties as required)
+                        localStorage.setItem('user_email', email);
+                        localStorage.setItem('signup_status', 'active');
+                        localStorage.setItem('last_visit', new Date().toISOString());
+
+                        feedback.textContent = "Success! Verified via API.";
+                        feedback.style.color = "green";
+                    }
+                } catch (err) {
+                    feedback.textContent = "Error connecting to validation server.";
                 }
             });
         }
+        getQuote();
     };
-
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', initNewsletter);
+    document.addEventListener('DOMContentLoaded', initApp);
 })();

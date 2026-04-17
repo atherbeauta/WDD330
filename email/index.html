@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W06 - Newsletter Subscription</title>
-    <style>
-        /* Basic styling for the feedback message */
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .form-container { max-width: 400px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
-        input[type="email"] { width: 80%; padding: 8px; margin-bottom: 10px; }
-        button { padding: 8px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
-        #feedback-message { margin-top: 15px; font-weight: bold; }
-    </style>
+    <title>WDD 330 Final Project - Athanase Muamba</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
     <div class="form-container">
-        <h2>Join our Newsletter</h2>
-        <p>Stay updated with our latest news and project progress.</p>
+        <div class="hero-section">
+            <img src="images/hero.png" alt="Hero Project" class="hero-img">
+        </div>
+
+        <header>
+            <h2>WDD 330 Final Project</h2>
+            <p>Join our newsletter to stay updated on project progress.</p>
+        </header>
         
         <form id="newsletter-form">
-            <input 
-                type="email" 
-                id="newsletter-email" 
-                placeholder="Enter your email" 
-                data-category="user-subscription"
-                required
-            >
-            <button type="submit" id="subscribe-btn">Subscribe</button>
+            <div class="input-group">
+                <input 
+                    type="email" 
+                    id="newsletter-email" 
+                    placeholder="Enter your professional email" 
+                    required
+                >
+            </div>
+            <button type="submit" id="subscribe-btn">Subscribe Now</button>
         </form>
 
         <div id="feedback-message"></div>
+
+        <div id="quote-box">
+            <p class="loading">Loading inspiration...</p>
+        </div>
+
+        <div class="social-icons">
+            <img src="images/facebook.png" class="icon" alt="Facebook">
+            <img src="images/instagram.png" class="icon" alt="Instagram">
+            <img src="images/linkedin.png" class="icon" alt="LinkedIn">
+        </div>
     </div>
 
     <script src="script/main.js"></script>
