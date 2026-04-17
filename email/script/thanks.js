@@ -1,50 +1,37 @@
-// Thanks Page Logic - WDD 330 Final Project
-// Student: Kazadi Athanase Muamba
-// Purpose: Demonstrate data persistence and DOM manipulation between pages
+// Thanks Page Logic - WDD 330
+// Handles data retrieval from LocalStorage and UI population
 
 (function() {
     "use strict";
 
-    /**
-     * Initializes the thanks page by retrieving data from LocalStorage
-     * and updating the UI dynamically.
-     */
-    const initThanksPage = () => {
+    const populateDetails = () => {
         const statsBox = document.querySelector('#stats-box');
         const welcomeMessage = document.querySelector('#welcome-message');
 
-        // 1. Retrieve stored properties (Requirement: 3-5 properties)
+        // 1. Retrieve the 3 required properties (Mastery Evidence)
         const email = localStorage.getItem('user_email');
         const status = localStorage.getItem('signup_status');
         const lastVisit = localStorage.getItem('last_visit');
 
-        // 2. Check if data exists to prevent errors
-        if (email && statsBox && welcomeMessage) {
-            // Personalize the title using the first part of the email
-            const userName = email.split('@')[0];
-            welcomeMessage.textContent = `Welcome aboard, ${userName}!`;
+        if (email && statsBox) {
+            // Personalize greeting
+            const user = email.split('@')[0];
+            welcomeMessage.textContent = `Thank You, ${user}!`;
 
-            // 3. Dynamic Markup Generation (Requirement: Dynamic HTML)
+            // 2. Inject dynamic HTML with LocalStorage data
             statsBox.innerHTML = `
-                <div class="summary-card">
-                    <p><strong>Account Status:</strong> <span class="highlight">${status}</span></p>
-                    <p><strong>Registration Date:</strong> ${lastVisit}</p>
-                    <p><strong>Confirmed Email:</strong> ${email}</p>
-                    <hr>
-                    <p class="note">This information was retrieved from your browser's LocalStorage to confirm your session.</p>
-                </div>
+                <p><strong>Status:</strong> <span class="highlight">${status}</span></p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Last Visit:</strong> ${lastVisit}</p>
+                <p style="font-size: 0.7rem; color: #999; margin-top: 10px;">
+                    * This data was persisted via LocalStorage.
+                </p>
             `;
-            
-            // Log for debugging during the video demo
-            console.log("Data successfully retrieved from LocalStorage.");
         } else {
-            // Fallback: If no data is found, redirect user to the home page
-            console.warn("No user data found. Redirecting...");
+            // Safety redirection if no data exists
             window.location.href = 'index.html';
         }
     };
 
-    // Event: Wait for the DOM to be fully loaded before executing logic
-    document.addEventListener('DOMContentLoaded', initThanksPage);
-
+    document.addEventListener('DOMContentLoaded', populateDetails);
 })();

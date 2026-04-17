@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Subscription Confirmed</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Subscription Confirmed | WDD 330</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/thanks.css">
 </head>
-<body class="thanks-page">
-    <main class="container fade-in">
-        <div class="card">
+<body>
+    <main class="container">
+        <section class="thanks-card slide-up">
+            <div class="image-container">
+                <img src="../images/success-illustration.jpg" alt="Success" class="thanks-img">
+            </div>
+
             <h1 id="welcome-message">Thank You!</h1>
-            <p id="user-info">We are glad to have you with us.</p>
+            <p class="subtitle">Your subscription has been successfully verified.</p>
+
             <div id="stats-box" class="stats-box">
-                </div>
-            <a href="index.html" class="btn-primary">Back to Home</a>
-        </div>
+                <p>Loading details...</p>
+            </div>
+
+            <div class="actions">
+                <a href="index.html" class="btn-primary">Return to Home</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </section>
     </main>
+
     <script src="script/thanks.js"></script>
 </body>
 </html>
